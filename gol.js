@@ -23,6 +23,7 @@ function setup() {
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
   gameReset();
+  fpsmeter.hide();
 }
 function draw() { 
   cols = Math.floor(width/res);
@@ -143,4 +144,13 @@ document.querySelector("#start_stop").addEventListener("click", function () {
 // Toggle grid
 document.querySelector("#gridButton").addEventListener("click", function(){
   gridded = !gridded;
+});
+// Toggle FPS Counter
+document.querySelector("#fpsMetButton").addEventListener("click", function(){
+  if (fpsmeter.isPaused){
+      fpsmeter.show();
+    } else {
+      fpsmeter.hide()
+    }
+
 });
