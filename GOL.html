@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game of Life</title>
+  <link rel="stylesheet" type="text/css" href="gol.css">
+  <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/fpsmeter/0.3.1/fpsmeter.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="fpsmet"></div>
+
+<h1>John Conway's Game of Life</h1>
+<h2>WIP personal project by Ebrahim Bakhtar</h2>
+
+<div class="container">
+
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div id="buttons">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary" id="lowRes">Big Cells</button>
+                <button type="button" class="btn btn-secondary active" id="medRes">Medium Cells</button>
+                <button type="button" class="btn btn-secondary" id="highRes">Small Cells</button>
+              </div>
+            </div>
+          <button id ="gridButton" class="button btn">Toggle Grid (may affect performance)</button>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+  </div>
+
+  <div id="game_window">
+  </div> 
+
+</div>
+
+<p class = "instruction">Press and hold the "n" key to advance the simulation or click <button id ="start_stop" class="go btn">Start</button></p>
+
+<button id ="resetButton" class="button btn">Reset</button>
+
+<script type="text/javascript" src="gol.js"></script>
+</body>
+</html>
