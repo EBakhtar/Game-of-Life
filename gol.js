@@ -6,6 +6,7 @@ var started;
 var gridded = false;
 var fpsmeter = new FPSMeter(document.getElementById("fpsmet"), {theme:"transparent", graph:1, history: 20, left: "3%", top: "2%"});
 var sqColour = "rgb(26, 42, 68)"
+var bkgColour = "rgb(0, 0 ,0)"
 var sqBordColour = 'rgb(0,255,0)'
 
 // Make the game board array
@@ -28,7 +29,7 @@ function setup() {
 function draw() { 
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
-  background(0);
+  background(bkgColour);
 //Colour the grid filling each live square. 1 = live, 0 = dead
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
@@ -43,7 +44,7 @@ function draw() {
         else if (gridded) {
           stroke(sqBordColour)
           strokeWeight(0.3);
-          fill(0);
+          fill(bkgColour);
           rect(x, y, res, res);
         }
       }
@@ -152,5 +153,33 @@ document.querySelector("#fpsMetButton").addEventListener("click", function(){
     } else {
       fpsmeter.hide()
     }
-
 });
+// Theme Buttons
+document.querySelector("#themeDark").addEventListener("click", function(){
+  sqColour = "rgb(26, 42, 68)"
+  bkgColour = "rgb(0, 0 ,0)"
+  sqBordColour = 'rgb(0,255,0)'
+});
+document.querySelector("#themeLight").addEventListener("click", function(){
+  sqColour = "rgb(0, 204, 68)"
+  bkgColour = "rgb(255, 255, 230)"
+  sqBordColour = 'rgb(0, 204, 68)'
+});
+document.querySelector("#themeBW").addEventListener("click", function(){
+  sqColour = "rgb(0, 0, 0)"
+  bkgColour = "rgb(255, 255 ,255)"
+  sqBordColour = "rgb(0, 0, 0)"
+});
+document.querySelector("#themeBlue").addEventListener("click", function(){
+  sqColour = "rgb(0, 122, 153)"
+  bkgColour = "rgb(204, 245, 255)"
+  sqBordColour = "rgb(102, 102, 102)"
+});
+// Close other nav menus when each is clicked
+jQuery('button').click( function(e) {
+    jQuery('.collapse').collapse('hide');
+});
+// var menuButtons = $('#myGroup');
+// $myGroup.on('show.bs.collapse','.collapse', function() {
+// $myGroup.find('.collapse.show').collapse('hide');
+// });
