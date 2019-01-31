@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Game of Life</title>
-  <link rel="stylesheet" type="text/css" href="gol.css">
+  <link rel="stylesheet" type="text/css" href="assets/gol.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
@@ -18,9 +18,9 @@
 <div class="container">
   <div id="titles">
     <h1 class="titles">John Conway's Game of Life</h1>
-    <h2 class="titles">WIP personal project by Ebrahim Bakhtar</h2>
+    <h2 class="titles">Cellular Automaton</h2>
   </div>
-  <div id="toolButtons">
+  <div class="panel-group" id="toolButtons">
     <button id="settingsBtn" class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleSettings" aria-controls="navbarToggleSettings" aria-expanded="false" aria-label="Toggle navigation">
       <span class="fas fa-cogs"></span>
     </button>
@@ -43,8 +43,8 @@
             <button type="button" class="btn btn-secondary" id="highRes">Small Cells</button>
           </div>
         </div>
-      <button id ="gridButton" class="button btn option">Toggle Grid (may affect performance)</button>
-      <button id ="fpsMetButton" class="button btn option">Toggle FPS counter</button>
+      <button id ="gridButton" class="button btn">Toggle Grid (may affect performance)</button>
+      <button id ="fpsMetButton" class="button btn">Toggle FPS counter</button>
     </div>
   </div>
 </div>
@@ -63,12 +63,12 @@
     <div id="info">
       <p>The game of life is a cellular automaton created by the Mathematician John Conway in 1970. From an intial seed, the grid evolves with each generation, each cell interacting with its eight neighbours to determine its next state. There are four rules:
       <ul>
-        <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation.</li>
-        <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
-        <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
-        <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
+        <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation</li>
+        <li>Any live cell with two or three live neighbors lives on to the next generation</li>
+        <li>Any live cell with more than three live neighbors dies, as if by overpopulation</li>
+        <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction</li>
       </ul>
-      Clicking Reset will generate a random seed which allocates each cell alive or dead.
+      Clicking Reset will generate a random seed which allocates each cell alive or dead. <br> Ebrahim Bakhtar - <a href="https://github.com/EBakhtar">My Github</a>
       </p>
     </div>
   </div>
@@ -81,6 +81,6 @@
 
 <button id ="resetButton" class="button btn">Reset</button>
 
-<script type="text/javascript" src="gol.js"></script>
+<script type="text/javascript" src="assets/gol.js"></script>
 </body>
 </html>
