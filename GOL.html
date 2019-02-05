@@ -18,7 +18,6 @@
 <div class="container">
   <div id="titles">
     <h1 class="titles">John Conway's Game of Life</h1>
-    <h2 class="titles">Cellular Automaton</h2>
   </div>
   <div class="panel-group" id="toolButtons">
     <button id="settingsBtn" class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleSettings" aria-controls="navbarToggleSettings" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +37,8 @@
     <div id="buttons">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-secondary" id="lowRes">Big Cells</button>
-            <button type="button" class="btn btn-secondary active" id="medRes">Medium Cells</button>
+            <button type="button" class="btn btn-secondary active" id="lowRes">Big Cells</button>
+            <button type="button" class="btn btn-secondary" id="medRes">Medium Cells</button>
             <button type="button" class="btn btn-secondary" id="highRes">Small Cells</button>
           </div>
         </div>
@@ -54,7 +53,7 @@
     <button id="themeDark" type="button" class="btn btn-secondary">Dark</button>
     <button id="themeLight" type="button" class="btn btn-secondary">Light</button>
     <button id="themeBW" type="button" class="btn btn-secondary">B&W</button>
-    <button id="themeBlue" type="button" class="btn btn-secondary">Blue</button>
+    <button id="themeBlue" type="button" class="btn btn-secondary">Vivid</button>
   </div>
 </div>
 
@@ -77,9 +76,9 @@
 <div id="game_window">
 </div> 
 
-<p class = "instruction">Press and hold the "n" key to advance the simulation or click <button id ="start_stop" class="go btn">Start</button></p>
+<p class = "instruction">Press and hold the "n" key to advance the simulation or click <button id ="start_stop" class="go btn btn-secondary bg-dark">Start</button></p>
 
-<button id ="resetButton" class="button btn">Reset</button>
+<button id ="resetButton" class="button btn btn-secondary bg-dark">Reset</button>
 
 <script type="text/javascript" src="assets/gol.js"></script>
 </body>

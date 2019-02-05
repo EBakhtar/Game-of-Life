@@ -1,13 +1,13 @@
 var grid;
 var cols;
 var rows;
-var res = 15;
+var res = 50;
 var started;
-var gridded = false;
+var gridded = true;
 var fpsmeter = new FPSMeter(document.getElementById("fpsmet"), {theme:"transparent", graph:1, history: 20, left: "3%", top: "2%"});
-var sqColour = "rgb(26, 42, 68)"
-var bkgColour = "rgb(0, 0 ,0)"
-var sqBordColour = 'rgb(0,255,0)'
+var sqColour = "rgb(255, 163, 26)"
+var bkgColour = "rgb(0, 120 ,120)"
+var sqBordColour = 'rgb(255,255,255)'
 
 // Make the game board array
 function gameBoard(cols, rows) {
@@ -17,6 +17,7 @@ function gameBoard(cols, rows) {
   }
   return arr;
 }
+
 //Initiate game board with random live/dead tiles
 function setup() {
   var canv = createCanvas((Math.floor((displayWidth-100)/100))*100, (Math.floor((displayHeight*0.6/100))*100));
@@ -26,52 +27,55 @@ function setup() {
   gameReset();
   fpsmeter.hide();
 }
+
 function draw() { 
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
   background(bkgColour);
 //Colour the grid filling each live square. 1 = live, 0 = dead
-    for (var i = 0; i < cols; i++) {
-      for (var j = 0; j < rows; j++) {
-        var x = i * res;
-        var y = j * res;
-        if (grid[i][j] == 1) {
-          fill(sqColour);
-          strokeWeight(0.6);
-          stroke(sqBordColour);
-          rect(x, y, res, res);
-        } // Adds a grid if toggle grid is active
-        else if (gridded) {
-          stroke(sqBordColour)
-          strokeWeight(0.3);
-          fill(bkgColour);
-          rect(x, y, res, res);
-        }
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      var x = i * res;
+      var y = j * res;
+      if (grid[i][j] == 1) {
+        fill(sqColour);
+        strokeWeight(0.6);
+        stroke(sqBordColour);
+        rect(x, y, res, res);
+      } // Adds a grid if toggle grid is active
+      else if (gridded) {
+        stroke(sqBordColour)
+        strokeWeight(0.3);
+        fill(bkgColour);
+        rect(x, y, res, res);
       }
     }
+  }
+// If n key is down or the start button is pressed run simulations
 //Check the current state against number of neighbours to determine squares' next state
-    if (keyIsDown(78) || (started)){
-      var nextGen = gameBoard(cols, rows);
-      for (var i = 0; i < cols; i++) {
-        for (var j = 0; j < rows;j++) {
-          var state = grid[i][j];
-           var neighbours = countNeighbours(grid, i, j);
-           // Alive with 2 or 3 neighbours stays alive
-           if (state == 1 && (neighbours == 2 || neighbours == 3)) {
-            nextGen[i][j] = 1;
-            // Dead with 3 neighbours becomes alive
-          } else if ((state == 0) && neighbours == 3) {
-            nextGen[i][j] = 1
-            // Alive with less than 2 or greater than 3 neighbours dies
-          } else {
-            nextGen[i][j] = 0;
-          }
+  if (keyIsDown(78) || (started)){
+    var nextGen = gameBoard(cols, rows);
+    for (var i = 0; i < cols; i++) {
+      for (var j = 0; j < rows;j++) {
+        var state = grid[i][j];
+         var neighbours = countNeighbours(grid, i, j);
+         // Alive with 2 or 3 neighbours stays alive
+         if (state == 1 && (neighbours == 2 || neighbours == 3)) {
+          nextGen[i][j] = 1;
+          // Dead with 3 neighbours becomes alive
+        } else if ((state == 0) && neighbours == 3) {
+          nextGen[i][j] = 1
+          // Alive with less than 2 or greater than 3 neighbours dies
+        } else {
+          nextGen[i][j] = 0;
         }
-      }
-      grid = nextGen;
-    }   
+      } 
+    }
+    grid = nextGen;
+  }   
   fpsmeter.tick(); 
 }
+
 //Count how many neighbours adjacent, at edges check opposite side of board
 function countNeighbours(grid, x, y) {
   var count = 0;
@@ -171,11 +175,11 @@ document.querySelector("#themeBW").addEventListener("click", function(){
   sqBordColour = "rgb(0, 0, 0)"
 });
 document.querySelector("#themeBlue").addEventListener("click", function(){
-  sqColour = "rgb(0, 122, 153)"
-  bkgColour = "rgb(204, 245, 255)"
-  sqBordColour = "rgb(102, 102, 102)"
+  sqColour = "rgb(255, 163, 26)"
+  bkgColour = "rgb(0, 120, 120)"
+  sqBordColour = "rgb(255, 255, 255)"
 });
-// Close other nav menus when one is opened
+// Close other menus when one is opened
 var navbarBtns = document.getElementsByClassName("navbar-toggler")
   for (var i =0;i<navbarBtns.length;i++){
     navbarBtns.item(i).addEventListener("click", function(){
