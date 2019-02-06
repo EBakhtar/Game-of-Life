@@ -179,10 +179,34 @@ document.querySelector("#themeBlue").addEventListener("click", function(){
   bkgColour = "rgb(0, 120, 120)"
   sqBordColour = "rgb(255, 255, 255)"
 });
-// Close other menus when one is opened
-var navbarBtns = document.getElementsByClassName("navbar-toggler")
-  for (var i =0;i<navbarBtns.length;i++){
-    navbarBtns.item(i).addEventListener("click", function(){
-      jQuery('.collapse').collapse("hide")
-    })
-  }
+
+// Menu buttons. growDiv closes all the menus and opens the one which has been clicked
+function growDiv(navId, wrapper) {
+    document.getElementById("navbarToggleSettings").style.height = 0;
+    document.getElementById("navbarToggleThemes").style.height = 0;
+    document.getElementById("navbarToggleInfo").style.height = 0;
+    var growDiv = document.getElementById(navId);
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector(wrapper);
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+}
+document.getElementById("settingsBtn").addEventListener("click", function(){
+  growDiv("navbarToggleSettings", ".settingsWrapper");
+});
+document.getElementById("themesBtn").addEventListener("click", function(){
+  growDiv("navbarToggleThemes", ".themesWrapper");
+});
+document.getElementById("infoBtn").addEventListener("click", function(){
+  growDiv("navbarToggleInfo", ".infoWrapper");
+});
+
+// Original menu method using bootstrap js and jQuery (fewer lines but requires more libraries)
+// var navbarBtns = document.getElementsByClassName("navbar-toggler")
+//   for (var i =0;i<navbarBtns.length;i++){
+//     navbarBtns.item(i).addEventListener("click", function(){
+//       jQuery('.collapse').collapse("hide")
+//     })
+//   }

@@ -4,13 +4,7 @@
   <title>Game of Life</title>
   <link rel="stylesheet" type="text/css" href="assets/gol.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/fpsmeter/0.3.1/fpsmeter.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="fpsmet"></div>
@@ -20,55 +14,69 @@
     <h1 class="titles">John Conway's Game of Life</h1>
   </div>
   <div class="panel-group" id="toolButtons">
-    <button id="settingsBtn" class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleSettings" aria-controls="navbarToggleSettings" aria-expanded="false" aria-label="Toggle navigation">
+
+
+    <button id="settingsBtn" class="navbar-toggler bg-dark" type="button">
       <span class="fas fa-cogs"></span>
     </button>
-    <button id="themesBtn" class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleThemes" aria-controls="navbarToggleThemes" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="themesBtn" class="navbar-toggler bg-dark" type="button">
       <span class="fas fa-palette"></span>
     </button>
-    <button id="infoBtn" class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleInfo" aria-controls="navbarToggleInfo" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="infoBtn" class="navbar-toggler bg-dark" type="button">
       <span class="fas fa-info"></span>
     </button>
   </div>   
 </div>
 
-<div class="pos-f-t">
-  <div class="collapse" id="navbarToggleSettings">
-    <div id="buttons">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-          <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-secondary active" id="lowRes">Big Cells</button>
-            <button type="button" class="btn btn-secondary" id="medRes">Medium Cells</button>
-            <button type="button" class="btn btn-secondary" id="highRes">Small Cells</button>
-          </div>
+
+  <div style="position: relative">
+    <div id="navbarToggleSettings">
+      <div class="settingsWrapper">
+        <div class="text" id="buttons">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary active" id="lowRes">Big Cells</button>
+                <button type="button" class="btn btn-secondary" id="medRes">Medium Cells</button>
+                <button type="button" class="btn btn-secondary" id="highRes">Small Cells</button>
+              </div>
+            </div>
+          <button id ="gridButton" class="button btn">Toggle Grid (may affect performance)</button>
+          <button id ="fpsMetButton" class="button btn">Toggle FPS counter</button>
         </div>
-      <button id ="gridButton" class="button btn">Toggle Grid (may affect performance)</button>
-      <button id ="fpsMetButton" class="button btn">Toggle FPS counter</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="pos-f-t">
-  <div class="collapse" id="navbarToggleThemes">
-    <button id="themeDark" type="button" class="btn btn-secondary">Dark</button>
-    <button id="themeLight" type="button" class="btn btn-secondary">Light</button>
-    <button id="themeBW" type="button" class="btn btn-secondary">B&W</button>
-    <button id="themeBlue" type="button" class="btn btn-secondary">Vivid</button>
+  <div style="position: relative">
+    <div id="navbarToggleThemes">
+      <div class="themesWrapper">
+        <div class="container" id="themesContainer">
+          <div class="row">
+            <div class="col-md-6"><button id="themeDark" type="button" class="btn btn-secondary themeBtn">Dark</button></div>
+            <div class="col-md-6"><button id="themeLight" type="button" class="btn btn-secondary themeBtn">Light</button></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><button id="themeBW" type="button" class="btn btn-secondary themeBtn">B&W</button></div>
+            <div class="col-md-6"><button id="themeBlue" type="button" class="btn btn-secondary themeBtn">Vivid</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="pos-f-t">
-  <div class="collapse" id="navbarToggleInfo">
-    <div id="info">
-      <p>The game of life is a cellular automaton created by the Mathematician John Conway in 1970. From an intial seed, the grid evolves with each generation, each cell interacting with its eight neighbours to determine its next state. There are four rules:
-      <ul>
-        <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation</li>
-        <li>Any live cell with two or three live neighbors lives on to the next generation</li>
-        <li>Any live cell with more than three live neighbors dies, as if by overpopulation</li>
-        <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction</li>
-      </ul>
-      Clicking Reset will generate a random seed which allocates each cell alive or dead. <br> Ebrahim Bakhtar - <a href="https://github.com/EBakhtar">My Github</a>
-      </p>
+  <div style="position: relative;">
+    <div id="navbarToggleInfo">
+      <div class="infoWrapper" id="info">
+          <p>The game of life is a cellular automaton created by the Mathematician John Conway in 1970. From an intial seed, the grid evolves with each generation, each cell interacting with its eight neighbours to determine its next state. There are four rules:
+          <ul>
+            <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation</li>
+            <li>Any live cell with two or three live neighbors lives on to the next generation</li>
+            <li>Any live cell with more than three live neighbors dies, as if by overpopulation</li>
+            <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction</li>
+          </ul>
+          Clicking Reset will generate a random seed which allocates each cell alive or dead. <br> Ebrahim Bakhtar - <a href="https://github.com/EBakhtar">My Github</a>
+          </p>
+      </div>
     </div>
   </div>
 </div>
@@ -80,6 +88,12 @@
 
 <button id ="resetButton" class="button btn btn-secondary bg-dark">Reset</button>
 
+<script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/fpsmeter/0.3.1/fpsmeter.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script type="text/javascript" src="assets/gol.js"></script>
 </body>
 </html>
