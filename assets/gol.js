@@ -8,7 +8,6 @@ var fpsmeter = new FPSMeter(document.getElementById("fpsmet"), {theme:"transpare
 var sqColour = "rgb(255, 163, 26)"
 var bkgColour = "rgb(0, 120 ,120)"
 var sqBordColour = 'rgb(255,255,255)'
-
 // Make the game board array
 function gameBoard(cols, rows) {
   var arr = new Array(cols);
@@ -17,7 +16,6 @@ function gameBoard(cols, rows) {
   }
   return arr;
 }
-
 //Initiate game board with random live/dead tiles
 function setup() {
   var canv = createCanvas((Math.floor((displayWidth-100)/100))*100, (Math.floor((displayHeight*0.6/100))*100));
@@ -27,7 +25,6 @@ function setup() {
   gameReset();
   fpsmeter.hide();
 }
-
 function draw() { 
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
@@ -75,7 +72,6 @@ function draw() {
   }   
   fpsmeter.tick(); 
 }
-
 //Count how many neighbours adjacent, at edges check opposite side of board
 function countNeighbours(grid, x, y) {
   var count = 0;
@@ -91,7 +87,6 @@ function countNeighbours(grid, x, y) {
   }
   return count;
 }
-
 function gameReset() {
   cols = Math.floor(width/res);
   rows = Math.floor(height/res);
@@ -102,7 +97,6 @@ function gameReset() {
     }
   }
 }
-
 var startbtn = document.getElementById("start_stop");
 startbtn.addEventListener("click", function(){
   startbtn.classList.toggle("go")
@@ -179,7 +173,6 @@ document.querySelector("#themeBlue").addEventListener("click", function(){
   bkgColour = "rgb(0, 120, 120)"
   sqBordColour = "rgb(255, 255, 255)"
 });
-
 // Menu buttons. growDiv closes all the menus and opens the one which has been clicked
 function growDiv(navId, wrapper) {
     document.getElementById("navbarToggleSettings").style.height = 0;
@@ -202,7 +195,6 @@ document.getElementById("themesBtn").addEventListener("click", function(){
 document.getElementById("infoBtn").addEventListener("click", function(){
   growDiv("navbarToggleInfo", ".infoWrapper");
 });
-
 // Original menu method using bootstrap js and jQuery (fewer lines but requires more libraries)
 // var navbarBtns = document.getElementsByClassName("navbar-toggler")
 //   for (var i =0;i<navbarBtns.length;i++){

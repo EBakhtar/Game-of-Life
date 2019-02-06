@@ -1,5 +1,5 @@
 body {
-  background-image: url("River.jpg") !important;
+  background-image: url("Background.jpg") !important;
   background-color: #185a9d !important;
   text-decoration-color: white;
   color: white !important;
@@ -32,11 +32,6 @@ button {
   margin: 0 auto;
   display: block;
   font-size: 50px;
-}
-
-#toolButtons {
-  display: inline-flex;
-  z-index: -1;
 }
 
 .btn {
@@ -101,12 +96,28 @@ button {
   font-size: xx-large;
 }
 
+.themeBtn {
+  margin: 0 !important;
+  padding: 1rem 0 !important;
+  width: 100%; 
+  height: 100%;
+}
+
+.navDiv {
+  position: relative;
+}
+
 #buttons {
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+#toolButtons {
+  display: inline-flex;
+  z-index: -1;
 }
 
 #resetButton {
@@ -137,18 +148,14 @@ button {
   overflow: hidden;
 }
 
+#navbarToggleThemes {
+  width: 350px;
+}
+
 #themesContainer {
-  padding: 0 !important;
-  margin: 0 !important;
+  margin:0 !important;
+  padding:0 !important;
 }
-
-.themeBtn {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100%; 
-  height: 100%;
-}
-
 
 #info {
   background: gray;
