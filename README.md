@@ -1,5 +1,5 @@
 ## Game-of-Life
-The famous game of life produced in JavaScript.
+The famous game of life produced in JavaScript.https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life. 
 Currently this may not support all device sizes, the canvas width is determined by sceensize but is not dynamic.
 Best used on chrome.
 There is an options dropdown on the left which allows resizing of the grid for larger or smaller cells, as well as to draw the gridlines. Drawing the gridlines takes considerably more CPU power as the library used to visualise the grid (P5) loops and draws every line in the graphic each frame. This means that the higher resolution with gridlines on is likely to cause performance issues. By default grid lines toggle off when you select medium or small cells.
